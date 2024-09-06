@@ -162,4 +162,8 @@ The Python script `visual.py` reads the heat distribution data from the CSV file
 - **Y-axis**: Represents the computed temperature values \( T(x) \).
 - The plot is saved as `heat_distribution_plot.png` and also displayed on the screen.
 
+- ### Plot:
+![Heat Distribution Plot](<img width="473" alt="plot" src="https://github.com/user-attachments/assets/efd4b965-aa09-48b6-8b3c-c760828ee13e">
+plot.png)
+
 
