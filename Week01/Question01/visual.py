@@ -8,18 +8,18 @@ input_file = 'heat_distribution.csv'
 x = []
 T = []
 
-# Debugging: Confirm reading the file
+
 print(f"Reading data from {input_file}...")
 
 # Read data from CSV file
 with open(input_file, 'r') as file:
     reader = csv.reader(file)
-    next(reader)  # Skip header
+    next(reader)  
     for row in reader:
         x.append(float(row[0]))
         T.append(float(row[1]))
 
-# Debugging: Check data
+
 print(f"Data read successfully. Number of points: {len(x)}")
 
 # Plot the heat distribution
@@ -31,7 +31,7 @@ plt.grid(True)
 plt.legend()
 plt.savefig('heat_distribution_plot.png')  # Save plot to a file
 
-# Debugging: Confirm plot creation
+
 print(f"Plot saved as 'heat_distribution_plot.png'")
 
 plt.show()
