@@ -1,136 +1,10 @@
 #include <iostream>
-#include <vector>
-#include <cmath>
 #include <cassert>
+#include "homework2.cpp"  // Include the homework2.cpp file
 
 using namespace std;
 
-// Vector class to represent both 2D and 3D vectors
-class Vector {
-private:
-    vector<double> components_;
-
-public:
-    Vector(vector<double> components) : components_(components) {}
-
-    Vector(double x, double y) : components_{x, y} {}
-    Vector(double x, double y, double z) : components_{x, y, z} {}
-    
-    ~Vector() {}
-
-    const vector<double>& getComponents() const {
-        return components_;
-    }
-
-    int size() const {
-        return components_.size();
-    }
-
-    // Addition operator
-    Vector operator+(const Vector &other) const {
-        if (components_.size() != other.size()) {
-            throw runtime_error("Vector sizes must match for addition.");
-        }
-        vector<double> result(components_.size());
-        for (size_t i = 0; i < components_.size(); ++i) {
-            result[i] = components_[i] + other.components_[i];
-        }
-        return Vector(result);
-    }
-
-    // Subtraction operator
-    Vector operator-(const Vector &other) const {
-        if (components_.size() != other.size()) {
-            throw runtime_error("Vector sizes must match for subtraction.");
-        }
-        vector<double> result(components_.size());
-        for (size_t i = 0; i < components_.size(); ++i) {
-            result[i] = components_[i] - other.components_[i];
-        }
-        return Vector(result);
-    }
-
-    // Scalar multiplication operator
-    Vector operator*(const double &scalar) const {
-        vector<double> result(components_.size());
-        for (size_t i = 0; i < components_.size(); ++i) {
-            result[i] = components_[i] * scalar;
-        }
-        return Vector(result);
-    }
-
-    // Dot product operator
-    double operator*(const Vector &other) const {
-        if (components_.size() != other.size()) {
-            throw runtime_error("Vector sizes must match for dot product.");
-        }
-        double result = 0.0;
-        for (size_t i = 0; i < components_.size(); ++i) {
-            result += components_[i] * other.components_[i];
-        }
-        return result;
-    }
-
-    friend ostream &operator<<(ostream &os, const Vector &v) {
-        os << "(";
-        for (size_t i = 0; i < v.size(); ++i) {
-            os << v.components_[i];
-            if (i < v.size() - 1) os << ", ";
-        }
-        os << ")";
-        return os;
-    }
-};
-
-// Particle class for motion simulation
-class Particle {
-public:
-    Particle(double mass, const Vector &position, const Vector &velocity, const Vector &force)
-        : mass_(mass), position_(position), velocity_(velocity), force_(force) {
-        cout << "Particle created at position " << position_ << endl;
-    }
-
-    ~Particle() {
-        cout << "Particle destroyed at position " << position_ << endl;
-    }
-
-    // Update particle's position using Euler's method
-    void updatePosition(double dt) {
-        position_ = position_ + velocity_ * dt;
-    }
-
-    void printState() const {
-        cout << "Particle - Position: " << position_ << ", Velocity: " << velocity_ << endl;
-    }
-
-    // Update particle's velocity and position based on sinusoidal forces
-    void update(double t, double dt) {
-        if (position_.size() == 2) {
-            force_ = Vector(sin(2.0 * t), cos(2.0 * t)); // 2D case
-        } else if (position_.size() == 3) {
-            force_ = Vector(sin(2.0 * t), cos(2.0 * t), cos(1.5 * t)); // 3D case
-        }
-
-        // Update velocity: v_{n+1} = v_n + dt * F_n
-        velocity_ = velocity_ + force_ * dt;
-
-        // Update position: P_{n+1} = P_n + dt * v_n
-        updatePosition(dt);
-    }
-
-    // Add this method to access the position
-    const Vector& getPosition() const {
-        return position_;
-    }
-
-private:
-    double mass_;
-    Vector position_;
-    Vector velocity_;
-    Vector force_;
-};
-
-// Function to test vector operations
+// Test function to validate vector operations
 void test_vector_operations() {
     cout << "Running vector operations tests..." << endl;
 
@@ -163,7 +37,7 @@ void test_vector_operations() {
     cout << "Vector operations tests passed!" << endl;
 }
 
-// Function to test particle motion in 2D
+// Test function to validate 2D particle motion
 void test_particle_motion_2d() {
     cout << "Running 2D particle motion test..." << endl;
 
@@ -172,13 +46,13 @@ void test_particle_motion_2d() {
 
     const auto& pos = particle2D.getPosition().getComponents();
     cout << "2D Particle position after update: (" << pos[0] << ", " << pos[1] << ")" << endl;
-    assert(pos[0] != 0.0);  // Expecting non-zero position after update
+    assert(pos[0] != 0.0);
     assert(pos[1] != 0.0);
 
     cout << "2D particle motion test passed!" << endl;
 }
 
-// Function to test particle motion in 3D
+// Test function to validate 3D particle motion
 void test_particle_motion_3d() {
     cout << "Running 3D particle motion test..." << endl;
 
@@ -187,24 +61,24 @@ void test_particle_motion_3d() {
 
     const auto& pos = particle3D.getPosition().getComponents();
     cout << "3D Particle position after update: (" << pos[0] << ", " << pos[1] << ", " << pos[2] << ")" << endl;
-    assert(pos[0] != 0.0);  // Expecting non-zero position after update
+    assert(pos[0] != 0.0);
     assert(pos[1] != 0.0);
     assert(pos[2] != 0.0);
 
     cout << "3D particle motion test passed!" << endl;
 }
 
-// Main function to run all the tests
+// Main test function to run all the tests
 int main() {
     cout << "Starting tests..." << endl;
 
-    // Test vector operations
+    // Run the vector operation tests
     test_vector_operations();
 
-    // Test 2D particle motion
+    // Run the 2D particle motion tests
     test_particle_motion_2d();
 
-    // Test 3D particle motion
+    // Run the 3D particle motion tests
     test_particle_motion_3d();
 
     cout << "All tests passed successfully!" << endl;

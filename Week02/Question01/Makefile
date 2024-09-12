@@ -2,22 +2,34 @@
 CC = g++
 CCFLAGS = -std=c++11 -Wall
 
-# Source file and executable
+# Source files
 SRC = homework2.cpp
-EXEC = homework2.x
+TEST_SRC = tests2.cpp
 
-# Default target: build the executable
+# Executables
+EXEC = homework2.x
+TEST_EXEC = tests2.x
+
+# Default target: build both executables
 all: $(EXEC)
 
-# Rule to build the executable (homework2.x)
+# Rule to build the main executable
 $(EXEC): $(SRC)
 	$(CC) $(CCFLAGS) -o $(EXEC) $(SRC)
 
-# Rule to run the program
+# Rule to build the test executable with TEST_MODE defined
+test: $(TEST_SRC)
+	$(CC) $(CCFLAGS) -DTEST_MODE -o $(TEST_EXEC) $(TEST_SRC)
+
+# Rule to run the main program
 run:
-	# Execute the compiled program
 	./$(EXEC)
 
-# Clean up generated files (executable, output files)
+# Rule to run the tests
+run_tests:
+	./$(TEST_EXEC)
+
+# Clean up generated files
 clean:
-	rm -rf $(EXEC) traject_2d.txt traject_3d.txt
+	rm -f $(EXEC) $(TEST_EXEC) traject_2d.txt traject_3d.txt
+	rm -rf images
