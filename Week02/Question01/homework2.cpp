@@ -15,15 +15,15 @@ public:
 
     Vector(double x, double y) : components_{x, y} {}
     Vector(double x, double y, double z) : components_{x, y, z} {}
-    
+
     ~Vector() {}
+
+    size_t size() const {
+        return components_.size();  // Return size as size_t
+    }
 
     const vector<double>& getComponents() const {
         return components_;
-    }
-
-    int size() const {
-        return components_.size();
     }
 
     // Addition operator
@@ -71,6 +71,7 @@ public:
         return result;
     }
 
+    // Output stream operator
     friend ostream &operator<<(ostream &os, const Vector &v) {
         os << "(";
         for (size_t i = 0; i < v.size(); ++i) {
@@ -130,24 +131,6 @@ private:
     Vector force_;
 };
 
-// Test operators with 2D vectors
-void test_operators() {
-    Vector v1(1.0, 2.0);
-    Vector v2(3.0, 4.0);
-
-    Vector v_add = v1 + v2;
-    cout << "v1 + v2 = " << v_add << endl;
-
-    Vector v_sub = v2 - v1;
-    cout << "v2 - v1 = " << v_sub << endl;
-
-    Vector v_mul_scalar = v1 * 2.0;
-    cout << "v1 * 2 = " << v_mul_scalar << endl;
-
-    double dot_product = v1 * v2;
-    cout << "v1 * v2 (dot product) = " << dot_product << endl;
-}
-
 // Simulation for 2D and 3D particle trajectory
 void simulateAndPlot(const string& filename, Particle& particle, double dt, double t_end) {
     ofstream file(filename);
@@ -173,15 +156,16 @@ void simulateAndPlot(const string& filename, Particle& particle, double dt, doub
     file.close();
 }
 
-// Main simulation entry point
+#ifndef TEST_MODE
 int main() {
-    // 2D particle simulation
+    // Your existing main code for the actual program
+    // Create and simulate 2D and 3D particles, etc.
     Particle particle2D(1.0, Vector(0.0, 0.0), Vector(0.0, 0.0), Vector(0.0, 0.0));
     simulateAndPlot("traject_2d.txt", particle2D, 0.02, 4.0);
 
-    // 3D particle simulation
     Particle particle3D(1.0, Vector(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0));
     simulateAndPlot("traject_3d.txt", particle3D, 0.02, 4.0);
 
     return 0;
 }
+#endif
