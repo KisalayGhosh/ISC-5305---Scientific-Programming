@@ -45,37 +45,27 @@ The project includes the following tasks:
 
 To compile the `homework2.cpp` and `tests2.cpp` files, follow these steps:
 
-1. **To compile the main program**:
-   ```bash
-   make all
-   ```
 
-2. **To compile and run the test suite** (without including in the Makefile):
-   ```bash
-  
-  make run
 
-   ```
 
----
 
-### Running the Main Simulation
+
+### Running the Program
 
 1. **Run the Simulation**:
-   ```bash
-   ./homework2.x
-   ```
+   
+1. make all  (This will compile homework2.cpp and generate an executable homework2.x. )
+  2. make run  ( This will execute homework2.x, generating the particle trajectory data files (traject_2d.txt for 2D motion 
+     and traject_3d.txt for 3D motion).
+  3. make test  (This will compile tests2.cpp with the test mode enabled and generate an executable tests2.x.)
+  4. make run_tests   (This will run the test suite, and you should see output indicating whether the tests passed successfully.)
+  5. python visual.py    (This will read the data from traject_2d.txt and traject_3d.txt, generate the plots, and save them in the images/ folder.)
+  6. make clean ( for clearing out all the generated files)
 
-This will generate the 2D and 3D particle trajectories and write the data to `traject_2d.txt` and `traject_3d.txt` files, respectively.
 
-2. **Run the Python Plotting Script**:
-   ```bash
-   python3 visual.py
-   ```
 
-This will read the trajectory files, generate plots for 2D and 3D particle motion, and display the plots. The plots are also saved in the `images/` folder.
 
----
+
 
 ## How the Code Works
 
