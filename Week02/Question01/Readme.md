@@ -132,3 +132,10 @@ The Python script `visual.py` reads the trajectory files and generates plots of 
 
 2. **Running on Different Platforms**:
    Running the code on Ubuntu or through Windows Subsystem for Linux (WSL) is recommended for smooth operation.
+
+Plots
+
+![2d_trajectory_plot](https://github.com/user-attachments/assets/6da6a3e3-c42b-4c97-888c-a31f565d0b3d)
+![3d_trajectory_plot](https://github.com/user-attachments/assets/b0ce6b14-9741-4704-a23b-aa3511c1ce96)
+
+
