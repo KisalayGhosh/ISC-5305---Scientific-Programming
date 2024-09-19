@@ -71,9 +71,15 @@ Basic exception handling has been added for scenarios such as:
 ## Compilation and Execution
 
 ### Compilation
-To compile the project, run the following command in the terminal:
+To compile the project, run the following commands in the terminal:
 ```bash
-make
+1. make homework.x
+2. ./homework.x
+3. make test_grid.x
+4. ./test_grid.x
+5. make clean
+
+
 ```
 
 This will compile the main program (`homework.x`) and the test program (`test_grid.x`).
@@ -93,7 +99,7 @@ To run the test suite:
 ### Python Plot
 To generate the timing plot using Python, run:
 ```bash
-python3 grid_summation_plot.py
+python grid_summation_plot.py
 ```
 This will generate a plot showing the time taken to add two grids for different grid sizes.
 
@@ -125,3 +131,7 @@ This assignment demonstrated the implementation of 3D grids using different memo
 ## Additional Information
 - AI was used to debug code, and provide exception handling logic.
 - The Python script utilizes `matplotlib` to generate the plot.
+
+Plot:
+
+<img width="746" alt="plot_grid" src="https://github.com/user-attachments/assets/184038fc-93c9-441f-88db-658c82e3a35f">
