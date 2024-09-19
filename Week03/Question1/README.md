@@ -1,5 +1,5 @@
 
-# Week 2 Assignment - 3D Array Grid Implementation
+# Week 3 Assignment - 3D Array Grid Implementation
 
 ## Overview
 
