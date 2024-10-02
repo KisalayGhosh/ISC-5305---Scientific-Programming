@@ -111,5 +111,11 @@ These functions are implemented in separate derived classes inheriting from the 
 ├── *.csv (Generated CSV files)
 └── README.md
 ```
+## Plots
 
 
+
+
+<img width="483" alt="plot1" src="https://github.com/user-attachments/assets/d0c68797-8d30-49e0-93ec-b7831991cb4b">
+
+<img width="471" alt="plot2" src="https://github.com/user-attachments/assets/18a772e7-8e72-46bb-ae4d-5c6712549f58">
