@@ -16,20 +16,20 @@ int main() {
     functions.push_back(std::make_unique<CubicFunction<double>>());
     functions.push_back(std::make_unique<LogQuadraticFunction<double>>());
 
-    // Solver parameters with looser tolerance and more iterations
+    // Solver parameters with stricter tolerance and more iterations
     struct SolverParams {
         double tolerance;
         int maxIterations;
     };
     std::vector<SolverParams> params = {
-        {0.001, 100},  // Adjusted tolerance and increased maximum iterations
+        {0.000001, 5000},  // Stricter tolerance and more iterations
     };
 
     // Initial guesses for different functions to allow more exploration
     std::vector<double> initial_guesses = {
-        1.0,  // Initial guess for sine function
-        2.5,  // Initial guess for cubic function
-        1.8   // Initial guess for logarithmic-quadratic function
+        0.5,  // Initial guess for sine function
+        1.0,  // Initial guess for cubic function
+        2.5   // Initial guess for logarithmic-quadratic function
     };
 
     // Iterate through each function and solve using both Newton and Secant methods

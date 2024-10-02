@@ -21,22 +21,32 @@ public:
         for (int i = 0; i < this->maxIterations; ++i) {
             T fx1 = func(x1);
             T fx2 = func(x2);
+            std::cout << "Secant: Iteration " << i + 1 << ": x1 = " << x1 << ", x2 = " << x2 << ", f(x2) = " << fx2 << std::endl;
+            
+            // Check if the function value difference is too small
             if (abs(fx2 - fx1) < this->tolerance) {
                 std::cout << "Secant: Converged after " << i + 1 << " iterations with root: " << x2 << std::endl;
                 file << i + 1 << "," << x2 << "\n";  // Write final root
                 break;
             }
+
+            // Calculate new approximation of the root
             T x3 = x2 - fx2 * (x2 - x1) / (fx2 - fx1);
             file << i + 1 << "," << x3 << "\n";  // Write iteration and root to CSV
+
             std::cout << "Iteration " << i + 1 << ": Root = " << x3 << std::endl;  // Debugging output
+
             if (abs(func(x3)) < this->tolerance) {
                 this->finalIteration = i + 1;
                 file.close();
                 return x3;
             }
+
+            // Update x1 and x2 for the next iteration
             x1 = x2;
             x2 = x3;
         }
+
         file.close();
         return x2;
     }

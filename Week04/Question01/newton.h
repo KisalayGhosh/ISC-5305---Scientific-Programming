@@ -20,6 +20,7 @@ public:
         for (int i = 0; i < this->maxIterations; ++i) {
             T fx = func(x);
             T dfx = func.fp(x);
+            std::cout << "Newton: Iteration " << i + 1 << ": x = " << x << ", f(x) = " << fx << ", f'(x) = " << dfx << std::endl;
             if (abs(fx) < this->tolerance || abs(dfx) < this->tolerance) {
                 std::cout << "Newton: Converged after " << i + 1 << " iterations with root: " << x << std::endl;
                 file << i + 1 << "," << x << "\n";  // Write final root
@@ -28,7 +29,6 @@ public:
             x = x - fx / dfx;
             this->finalIteration = i + 1;
             file << i + 1 << "," << x << "\n";  // Write iteration and root to CSV
-            std::cout << "Iteration " << i + 1 << ": Root = " << x << std::endl;  // Debugging output
         }
         file.close();
         return x;
