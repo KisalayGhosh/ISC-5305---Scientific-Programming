@@ -6,8 +6,12 @@ import matplotlib.pyplot as plt
 if not os.path.exists('images'):
     os.makedirs('images')
 
-# Load vertex areas
-vertex_areas = np.loadtxt("vertex_areas.txt")
+try:
+    # Load vertex areas from file
+    vertex_areas = np.loadtxt("vertex_areas.txt")
+except OSError:
+    print("Error: Unable to open 'vertex_areas.txt'. Please check if the file exists.")
+    exit(1)
 
 # Plot histogram of vertex areas
 plt.figure()
@@ -18,8 +22,12 @@ plt.ylabel('Frequency')
 plt.savefig('images/vertex_areas_histogram.png')
 plt.show()
 
-# Load edge lengths
-edge_lengths = np.loadtxt("edge_lengths.txt")
+try:
+    # Load edge lengths from file
+    edge_lengths = np.loadtxt("edge_lengths.txt")
+except OSError:
+    print("Error: Unable to open 'edge_lengths.txt'. Please check if the file exists.")
+    exit(1)
 
 # Plot histogram of edge lengths
 plt.figure()
@@ -34,5 +42,5 @@ plt.show()
 mean_edge_length = np.mean(edge_lengths)
 std_edge_length = np.std(edge_lengths)
 
-print(f"Mean edge length: {mean_edge_length}")
-print(f"Standard deviation of edge lengths: {std_edge_length}")
+print(f"Mean edge length: {mean_edge_length:.4f}")
+print(f"Standard deviation of edge lengths: {std_edge_length:.4f}")
