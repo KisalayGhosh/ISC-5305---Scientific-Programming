@@ -1,3 +1,4 @@
+<img width="187" alt="flow" src="https://github.com/user-attachments/assets/ee809ea7-711d-4fb4-b448-411397dafde0">
 # ScientificContainer Project
 
 ## Overview
@@ -99,15 +100,23 @@ The program demonstrates the following steps:
 
 ## Conclusion
 
-The `ScientificContainer` project demonstrates effective use of modern C++ features such as templates, smart pointers, polymorphism, and custom exception handling. By designing the container with flexibility, extensibility, and safety in mind, the solution is both robust and easy to extend. The extensive use of comments, error handling, and static assertions ensures that the code is readable, maintainable, and free from common runtime issues.
+A good example of utilising contemporary C++ features like smart pointers, templates, polymorphism, and custom exception handling is the `ScientificContainer` project. The solution is both reliable and simple to expand because the container was designed with flexibility, extensibility, and safety in mind. The code is readable, maintainable, and free of common runtime problems thanks to the heavy use of comments, error handling, and static assertions.
 
-The project illustrates key concepts in software design, including type safety, exception safety, and object-oriented programming, making it an ideal reference for learning advanced C++ programming techniques.
+The project serves as a great resource for learning advanced C++ programming techniques because it demonstrates important ideas in software design, such as type safety, exception safety, and object-oriented programming.
+
 
 ## Future Improvements
 
 - **Parallel Computation**: Implement parallel execution for `compute_all()` to leverage multi-core processors.
 - **Better Memory Management**: Consider using `std::unique_ptr` if shared ownership is not required, to reduce overhead.
 - **Extended Metadata**: Add more metadata fields, such as timestamps or performance metrics, to enhance the information available for each element.
+
+## UML Diagram
+<img width="327" alt="uml" src="https://github.com/user-attachments/assets/98fd8398-d98b-4656-87d8-385a414c3c46">
+
+## Flowchart
+<img width="187" alt="flow" src="https://github.com/user-attachments/assets/319d5fd6-f906-46b5-8a5c-96bd64467e52">
+
 
 ## Author
 
