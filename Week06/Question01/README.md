@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project involves creating a `ScientificContainer` class in C++ that manages various scientific calculation objects and their associated metadata. The container supports adding elements, managing metadata, performing computations, filtering elements, and serializing the data to a JSON-like format. The project demonstrates the use of advanced C++ features such as templates, smart pointers, custom exceptions, and standard library containers.
+This project involves creating a `ScientificContainer` class in C++ that manages various scientific calculation objects and their associated metadata. The container can be used to add elements, filter elements, compute, manage metadata, add elements, and serialise data to a format similar to JSON. Advanced C++ features like templates, smart pointers, custom exceptions, and standard library containers are all used in this project to show off their use.
 
 ## Features
 
@@ -18,11 +18,13 @@ This project involves creating a `ScientificContainer` class in C++ that manages
    - `static_assert` is used to ensure that only arithmetic types are allowed in the generic `process_data()` function, reducing runtime errors.
 
 4. **Metadata Management**
-   - Metadata can be associated with each element in the container, including an integer, a double, a string, and a callback function.
+   - Every element in the container has the ability to have associated metadata, such as an integer, double, string, or callback function.
+
    - Metadata is printed and the associated callbacks are executed upon request.
 
 5. **Serialization**
-   - The container can serialize itself to a JSON-like format, providing a structured overview of its contents. This is useful for debugging or exporting the container's state.
+   - The container offers an organised summary of its contents by serialising itself to a format resembling JSON. This is helpful for exporting or debugging the state of the container.
+
 
 6. **Exception Safety**
    - The code implements both basic and strong exception safety. Errors in one computation or callback do not affect others.
@@ -34,14 +36,16 @@ This project involves creating a `ScientificContainer` class in C++ that manages
 
 ### Static Assertions
 
-- The `static_assert` in `process_data()` ensures that only arithmetic types are passed to the function, preventing incorrect usage at compile time.
+- To prevent incorrect usage at compile time, the `static_assert` in `process_data()` makes sure that only arithmetic types are passed to the function.
+
 - This choice was made to ensure that the function is used only with valid types, thus reducing runtime errors and enforcing stricter type safety.
 
 ### Exception Safety Analysis
 
 - **`add_element()` Function**: Provides **basic exception safety** by ensuring the container is not modified if a duplicate element is added. The `DuplicateElementException` is thrown if a duplicate key is detected.
 - **`add_metadata()` Function**: This function also provides **basic exception safety** by checking for existing metadata before adding new entries, preventing overwriting.
-- **`compute_all()` Function**: Implements **strong exception safety** by using try-catch blocks to ensure that each computation runs independently without affecting others in case of an error.
+- **`compute_all()` Function**: uses try-catch blocks to implement **strong exception safety**, which makes sure that in the event of an error, each computation continues on its own without affecting others.
+
 - Exception safety is essential for ensuring that the program remains in a valid state, even when unexpected errors occur.
 
 ### Design Considerations
@@ -62,7 +66,7 @@ This project involves creating a `ScientificContainer` class in C++ that manages
 To compile the program, use the following command:
 
 ```bash
-g++ -std=c++17 -Wall -Wextra -pedantic main.cpp -o scientific_program
+make
 ```
 
 Make sure to use C++17 or a later version to support the features used in the code.
