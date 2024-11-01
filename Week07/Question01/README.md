@@ -170,4 +170,4 @@ x     P(x)     P'(x)    P''(x)   P'''(x)  P''''(x)  P'''''(x)
 
 ---
 
-This project demonstrates the use of modern C++ for symbolic computation, highlighting memory management, object-oriented design, and numerical methods. Thank you for reviewing this project!
+This project demonstrates the use of modern C++ for symbolic computation, highlighting memory management, object-oriented design, and numerical methods.
