@@ -164,6 +164,10 @@ x     P(x)     P'(x)    P''(x)   P'''(x)  P''''(x)  P'''''(x)
 - **Support for Additional Operators**: Extend `Node` and `PolynomialBinaryTree` to support division (`/`) and power (`^`) operators.
 - **Further Optimization**: Consider using `std::unique_ptr` if exclusive ownership of nodes becomes feasible in future designs.
 
+- Plot
+- <img width="703" alt="Screenshot 2024-10-31 230401" src="https://github.com/user-attachments/assets/04eade51-c614-4245-a37a-2b93332cfc28">
+
+
 ---
 
 This project demonstrates the use of modern C++ for symbolic computation, highlighting memory management, object-oriented design, and numerical methods. Thank you for reviewing this project!
