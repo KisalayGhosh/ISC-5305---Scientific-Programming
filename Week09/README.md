@@ -56,3 +56,7 @@ make
 
 ./trapezoidal_nonadaptive_recursive.x
 # Output: integral: 330.672, exact: 330.667
+```
+Plots
+![Figure_1](https://github.com/user-attachments/assets/a8c82be1-9a75-4736-9605-8d319032381c)
+![Figure_2](https://github.com/user-attachments/assets/c6f6f87d-fe9a-4f81-837c-624008332069)
